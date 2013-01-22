@@ -5,7 +5,11 @@ var express = require('express')
   , path = require('path');
 
 
-var IPADDR = process.env.OPENSHIFT_INTERNAL_IP | "127.0.0.1";
+var IPADDR = process.env.OPENSHIFT_INTERNAL_IP;
+if (typeof IPADDR === 'undefined') {
+  console.warn("NO OPENSHIFT_INTERNAL_IP SET. USING 127.0.0.1");
+  IPADDR = "127.0.0.1";
+}
 var PORT   = process.env.OPENSHIFT_INTERNAL_PORT || 8080;
 
 /**
