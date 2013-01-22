@@ -5,7 +5,18 @@ module.exports = function(app, db) {
   app.get('/classes', function(req, res) {
 
     var courses = db.collection('courses');
-    courses.find({}).toArray( function(err, results) {
+    var limit = req.param('limit') || 0;
+
+    if(limit) {
+      try {
+        limit = parseInt(limit);
+      }catch(e) {
+        limit = 0;
+      }
+    }
+
+    console.log(limit);
+    courses.find({}).limit(limit).toArray( function(err, results) {
       if(err) {
         console.log(err);
         return res.send({error: "DB error"});
@@ -33,7 +44,17 @@ module.exports = function(app, db) {
 
     var courses = db.collection('courses');
     var subject = req.param('subject');
-    courses.find({subject:subject}).toArray(function(err, results) {
+    var limit = req.param('limit');
+
+    if (limit) {
+      try {
+        limit = parseInt(limit);
+      }catch(e) {
+        limit = 0;
+      }
+    }
+
+    courses.find({subject:subject}).limit(limit).toArray(function(err, results) {
       if(err) {
         console.log(err);
         return res.send({error: "DB error"});
