@@ -25,7 +25,8 @@
   },
 
   "dependencies": {
-    "express": "*"
+    "express": ">= 3.0.0",
+    "mongodb": "1.2.9"
   },
   "devDependencies": {},
   "bundleDependencies": [],
