@@ -9,18 +9,18 @@
     "openshift"
   ],
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url":  "http://openshift.redhat.com/"
+    "name": "Arthur Maciejewicz",
+    "email": "arm32@njit.edu",
+    "url":  "http://web.njit.edu/~arm32"
   },
-  "homepage": "http://openshift.redhat.com/",
+  "homepage": "https://njitapi.github.com",
   "repository": {
     "type": "git",
-    "url": "https://gitub.com/openshift/crankcase"
+    "url": "https://gitub.com/zintino/njitapi"
   },
 
   "engines": {
-    "node": ">= 0.6.0",
+    "node": ">= 0.8.0",
     "npm": ">= 1.0.0"
   },
 
