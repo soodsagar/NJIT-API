@@ -31,7 +31,7 @@ var MongodbConfig = {
   , PASSWORD: process.env.OPENSHIFT_MONGODB_DB_PASSWORD || config.mongo.PASSWORD
   , HOST: process.env.OPENSHIFT_MONGODB_DB_HOST || config.mongo.HOST
   , PORT: parseInt(process.env.OPENSHIFT_MONGODB_DB_PORT) || config.mongo.PORT
-  , APP_NAME: process.env.OPENSHIFT_APP_NAME || config.mongo.DB
+  , APP_NAME: "njit" || config.mongo.DB
 };
 
 if (MongodbConfig.USERNAME !== '') {
