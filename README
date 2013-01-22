@@ -1,67 +1,42 @@
-Feel free to change or remove this file, it is informational only.
+NJIT API
+========
+NJIT API Source Code (*not affiliated with New Jersey Institute of Technology*)
 
-Repo layout
-===========
-node_modules/                       - Any Node modules packaged with the app
-deplist.txt                         - Deprecated.
-package.json                        - npm package descriptor.
-.openshift/                         - Location for openshift specific files
-.openshift/action_hooks/pre_build   - Script that gets run every git push before
-                                      the build
-.openshift/action_hooks/build       - Script that gets run every git push as
-                                      part of the build process (on the CI
-                                      system if available)
-.openshift/action_hooks/deploy      - Script that gets run every git push after
-                                      build but before the app is restarted
-.openshift/action_hooks/post_deploy - Script that gets run every git push after
-                                      the app is restarted
+*Distributed under a BSD3 license.*
 
-Notes about layout
-==================
-Please leave the node_modules and .openshift directories but feel free to
-create additional directories if needed.
+This is a public API provided by __Arthur Maciejewicz__ for the usage of 
+NJIT students who want access to the course information that njit puts
+on display at [courseschedules.njit.edu](http://courseschedules.njit.edu).
 
-Note: Every time you push, everything in your remote repo dir gets recreated
-      please store long term items (like an sqlite database) in the OpenShift
-      data directory, which will persist between pushes of your repo.
-      The OpenShift data directory is accessible relative to the remote repo
-      directory (../data) or via an environment variable OPENSHIFT_DATA_DIR.
+This is a REST api, and the following routes are valid:
+
+Routes
+======
+
+*All routes are prefixed by ```njitapi-zintinio.rhcloud.com```
+
+    /classes
+
+*Description* Returns all classes available at NJIT
 
 
-Environment Variables
-=====================
-OpenShift provides several environment variables to reference for ease
-of use.  The following list are some common variables but far from exhaustive:
-    process.env.OPENSHIFT_GEAR_NAME  - Application name
-    process.env.OPENSHIFT_GEAR_DIR   - Application dir
-    process.env.OPENSHIFT_DATA_DIR  - For persistent storage (between pushes)
-    process.env.OPENSHIFT_TMP_DIR   - Temp storage (unmodified files deleted after 10 days)
+    /classes/subject/:subject
 
-When embedding a database using 'rhc app cartridge add', you can reference environment
-variables for username, host and password:
-    process.env.OPENSHIFT_DB_HOST      - DB Host
-    process.env.OPENSHIFT_DB_PORT      - DB Port
-    process.env.OPENSHIFT_DB_USERNAME  - DB Username
-    process.env.OPENSHIFT_DB_PASSWORD  - DB Password
-
-When embedding a NoSQL database using 'rhc app cartridge add', you can reference environment
-variables for username, host and password:
-    process.env.OPENSHIFT_NOSQL_DB_HOST      - NoSQL DB Host
-    process.env.OPENSHIFT_NOSQL_DB_PORT      - NoSQL DB Port
-    process.env.OPENSHIFT_NOSQL_DB_USERNAME  - NoSQL DB Username
-    process.env.OPENSHIFT_NOSQL_DB_PASSWORD  - NoSQL DB Password
-
-To get a full list of environment variables, simply add a line in your
-.openshift/action_hooks/build script that says "export" and push.
+*Description* Returns all classes from a certain subject
 
 
-deplist.txt
-===========
-A list of node modules to install, line by line on the server. This will happen
-when the user does a git push.
+    /classes/subject/:subject/course/:course_number
 
+*Description* Returns all sections of a course in a subject.
 
-Additional information
-======================
-Link to additional information will be here, when we have it :)
+<table>
+  <tr>
+    <th>Stuff</th>
+  </tr>
 
+  <tr>
+    <td>
+    Stuuufff
+    </td>
+  </tr>
+</table>
