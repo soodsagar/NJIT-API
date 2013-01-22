@@ -34,23 +34,25 @@ var MongodbConfig = {
   , APP_NAME: "njit" || config.mongo.DB
 };
 
-if (MongodbConfig.USERNAME !== '') {
-  var MONGO_URI = format(
-     "mongodb://%s:%s@%s:%s/%s"
-    , MongodbConfig.USERNAME
-    , MongodbConfig.PASSWORD
-    , MongodbConfig.HOST
-    , MongodbConfig.PORT
-    , MongodbConfig.APP_NAME
-  );
-} else {
-  var MONGO_URI = format(
-      "mongodb://%s:%s/%s"
-    , MongodbConfig.HOST
-    , MongodbConfig.PORT
-    , MongodbConfig.APP_NAME
-  );
-}
+/*
+ *if (MongodbConfig.USERNAME !== '') {
+ *  var MONGO_URI = format(
+ *     "mongodb://%s:%s@%s:%s/%s"
+ *    , MongodbConfig.USERNAME
+ *    , MongodbConfig.PASSWORD
+ *    , MongodbConfig.HOST
+ *    , MongodbConfig.PORT
+ *    , MongodbConfig.APP_NAME
+ *  );
+ *} else {
+ */
+var MONGO_URI = format(
+    "mongodb://%s:%s/%s"
+  , MongodbConfig.HOST
+  , MongodbConfig.PORT
+  , MongodbConfig.APP_NAME
+);
+//}
     
 
 /**
